@@ -1,3 +1,5 @@
+Actual commit credits copyleft https://www.alawise.es/1-s
+
 /*See https://github.com/RaulPPelaez/Naga_KeypadMapper/graphs/contributors
 * for a full list of contributors.
 * This program is free software. It comes without any warranty, to the extent

@@ -377,10 +377,7 @@ public:
 
       last_press[i] = now;
   }
-  
-  std::cout << "Button index: " << i
-          << " event: " << eventCode << std::endl;
-
+ 
     //Only accept press or release events
     if(eventCode>1) return;
     // ydotool moderno: sin --up/--down ni --delay

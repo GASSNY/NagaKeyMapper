@@ -1,0 +1,63 @@
+# ---------- Compilación ----------
+*.o
+*.obj
+*.out
+*.a
+*.so
+*.lo
+*.la
+
+# binarios generados
+naga
+a.out
+
+# archivos LTO / gcc modernos
+*.ltrans*
+*.gcno
+*.gcda
+
+# ---------- Debug / coredumps ----------
+core
+core.*
+vgcore.*
+*.stackdump
+
+# gdb
+.gdb_history
+
+# ---------- Editor ----------
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# VSCode / IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# ---------- Sistema ----------
+.DS_Store
+Thumbs.db
+
+# ---------- Archivos de usuario ----------
+# config runtime creada en HOME
+.naga/
+mapping_runtime.txt
+
+# logs locales
+*.log
+
+# ---------- Instalación ----------
+# copias instaladas por install.sh si se ejecuta dentro del repo
+usr/
+bin/
+lib/
+
+# ---------- Shell ----------
+*.pid
+
+# ---------- Autotests accidentales ----------
+test
+test_*

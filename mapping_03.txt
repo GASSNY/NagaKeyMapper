@@ -1,0 +1,7 @@
+1-key=125:1 105:1 105:0 125:0   # Super + ←
+2-key=125:1 106:1 106:0 125:0   # Super + →
+3-key=125:1 103:1 103:0 125:0   # Super + ↑ maximizar
+4-key=125:1 108:1 108:0 125:0   # Super + ↓ restaurar
+5-key=29:1 15:1 15:0 29:0       # Ctrl+Tab cambiar pestaña
+6-key=29:1 42:1 15:1 15:0 42:0 29:0   # Ctrl+Shift+Tab
+7-key=chmap:mapping_01.txt      # volver al perfil base

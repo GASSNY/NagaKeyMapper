@@ -74,7 +74,7 @@ The installation process automatically executes the daemon in the background and
 
 `nagastart.sh` does the below process automatically:
 
-1) Inits the mapper by calling: `$./naga` 
+1) Inits the mapper by calling: `naga` 
 
 ## UNINSTALLATION
 

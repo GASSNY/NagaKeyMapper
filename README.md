@@ -3,7 +3,7 @@ This little linux Wayland daemon allows you to map the side keypad of the Razer 
 Requires: `ydotool` and Wayland environment to work.
 
 Currently tested with:
--Raza Trinity on debian Forky
+-Razer Trinity on debian Forky
 
 This daemon does not, in any case modify any system file nor property of any device. So the process is totally reversible just by deleting the files and at most rebooting. 
 

@@ -8,7 +8,9 @@ Currently tested with:
 This daemon does not, in any case modify any system file nor property of any device. So the process is totally reversible just by deleting the files and at most rebooting. 
 
 CAUTION, in this alpha version the run option wont work for text environment commands, like for example `top`.
-As an alpha version, it is very prone to bugs and other sorts of failure. I release this project without any sort of warranty, so use under your own resp## What is this really?
+As an alpha version, it is very prone to bugs and other sorts of failure. I release this project without any sort of warranty, so use under your own responsability.
+
+## What is this really?
 
 NagaKeyMapper is not just a button remapper.
 

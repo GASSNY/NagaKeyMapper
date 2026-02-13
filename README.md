@@ -8,7 +8,16 @@ Currently tested with:
 This daemon does not, in any case modify any system file nor property of any device. So the process is totally reversible just by deleting the files and at most rebooting. 
 
 CAUTION, in this alpha version the run option wont work for text environment commands, like for example `top`.
-As an alpha version, it is very prone to bugs and other sorts of failure. I release this project without any sort of warranty, so use under your own responsibility.
+As an alpha version, it is very prone to bugs and other sorts of failure. I release this project without any sort of warranty, so use under your own resp## What is this really?
+
+NagaKeyMapper is not just a button remapper.
+
+It is a userspace input translation daemon that converts the Razer Naga side keypad
+into a modal programmable keyboard under Wayland, using ydotool as a virtual device.
+
+In other words: a QMK-like layer system for a mouse, without kernel modules.onsibility.
+
+Keywords: Wayland input injection, uinput, evdev remapping, Razer Naga Linux, MMO mouse Linux
 
 ## CONFIGURATION
 The configuration file `mapping_xx.txt` has the following syntax:
@@ -79,3 +88,29 @@ The installation process automatically executes the daemon in the background and
 ## UNINSTALLATION
 
 To uninstall you just need to run ```$bash uninstall.sh```.
+
+## Architecture
+
+Device → evdev → naga → action parser → ydotool → virtual keyboard → compositor
+
+The daemon grabs raw events from /dev/input and injects new ones through uinput.
+No X11 dependency, pure Wayland compatible.
+
+## Why not xdotool?
+
+Wayland does not allow synthetic keyboard input from clients.
+xdotool therefore fails in GNOME/Wayland sessions.
+
+ydotool works because it writes to a virtual kernel input device (uinput).
+This daemon translates mouse buttons into kernel-level keyboard events.
+
+## Dynamic profiles
+
+Mappings can be switched instantly from the mouse itself:
+
+7-chmap=mapping_02.txt
+
+No restart required. The daemon reloads configuration live.
+
+This allows modal workflows:
+navigation / editing / window manager layers

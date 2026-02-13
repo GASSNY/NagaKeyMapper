@@ -1,5 +1,12 @@
 Actual commit credits copyleft https://www.alawise.es/1-s
 
+This project is derived from Naga Keypad Mapper (X11 version)
+originally released under the Beerware License.
+
+New modifications are licensed under GPL-3.0.
+
+Beerware license text is preserved in source files where applicable.
+
 /*See https://github.com/RaulPPelaez/Naga_KeypadMapper/graphs/contributors
 * for a full list of contributors.
 * This program is free software. It comes without any warranty, to the extent

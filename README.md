@@ -114,3 +114,15 @@ No restart required. The daemon reloads configuration live.
 
 This allows modal workflows:
 navigation / editing / window manager layers
+
+## Troubleshooting
+
+### Double key press
+Some mice send duplicate press events.
+The daemon includes a debounce filter.
+
+### Nothing happens
+Ensure ydotoold is running and user belongs to the input group.
+
+### Works in terminal but not GNOME
+You are probably running under XWayland. This tool targets Wayland sessions.

